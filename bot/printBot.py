@@ -23,16 +23,12 @@ async def command_start(message: Message):
 
 @router.message(F.text.contains("печат"))
 async def print_filter(message: Message):
+    await bot.send_message(chat_id=config_dict["admin_id"], text="check group")
+    await bot.send_message(chat_id=config_dict["manager_id"], text="check group")
 
-#     if message.text in ("Кто печатает?",
-#      "Кто распечатает?",
-#      "Кто может распечатать?",
-#     ):
-#         message.answer(f"""
-# Если нужно распечатать обращайтесть к ней:
-# {config_dict["manager_name"]}                       
-# """)
 
+@router.message(F.text.contains("Печат"))
+async def print_filter(message: Message):
     await bot.send_message(chat_id=config_dict["admin_id"], text="check group")
     await bot.send_message(chat_id=config_dict["manager_id"], text="check group")
 
@@ -42,3 +38,11 @@ async def print_filter(message: Message):
 
     
 
+#     if message.text in ("Кто печатает?",
+#      "Кто распечатает?",
+#      "Кто может распечатать?",
+#     ):
+#         message.answer(f"""
+# Если нужно распечатать обращайтесть к ней:
+# {config_dict["manager_name"]}                       
+# """)
