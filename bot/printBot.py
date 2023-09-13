@@ -21,13 +21,7 @@ async def command_start(message: Message):
         )
     
 
-@router.message(F.text.contains("печат"))
-async def print_filter(message: Message):
-    await bot.send_message(chat_id=config_dict["admin_id"], text="check group")
-    await bot.send_message(chat_id=config_dict["manager_id"], text="check group")
-
-
-@router.message(F.text.contains("Печат"))
+@router.message(F.text.contains("печат") | F.text.contains("Печат"))
 async def print_filter(message: Message):
     await bot.send_message(chat_id=config_dict["admin_id"], text="check group")
     await bot.send_message(chat_id=config_dict["manager_id"], text="check group")
